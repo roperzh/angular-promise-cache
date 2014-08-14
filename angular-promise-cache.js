@@ -211,6 +211,18 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
         $rootScope.$broadcast('angular-promise-cache.removed', key);
       }
 
+      promiseCacheFunction.showMemos = function() {
+        console.log("memos", memos);
+      };
+
+      promiseCacheFunction.removeAll = function() {
+        var keys = Object.keys(memos);
+
+        for (var i = keys.length - 1; i >= 0; i--) {
+          this.remove(keys[i]);
+        };
+      };
+
       return promiseCacheFunction;
     }]);
 
